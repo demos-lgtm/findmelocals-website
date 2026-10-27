@@ -1237,6 +1237,8 @@ html.pin-on .dock{transform:translateY(110%)!important}
 .bt-band b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--sun)}
 .bt-band span{color:#C9DBD0;font-size:15px}
 @media (max-width:640px){.bt-band{display:none}}
+/* home page: no sticky bar, the hero button is enough (Oct 27) */
+.dock.off{display:none!important}
 /* Finding steps + scorecard (How it works) */
 .find{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:f}
 .find li{counter-increment:f;background:var(--white);border-radius:24px;padding:20px;box-shadow:0 0 0 1px rgba(11,31,23,.08);display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -2577,7 +2579,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
     var sel = document.getElementById('f-svc');
     var lastSvc = '', onSvc = false;
     var dockA = document.querySelector('#dock a'), dockHTML = dockA ? dockA.innerHTML : '';
-    function dockFor(slug){ if (!dockA) return; if (slug) { dockA.setAttribute('data-pick', slug); dockA.innerHTML = dockHTML.replace('Find my money job', 'Get started now'); } else { dockA.removeAttribute('data-pick'); dockA.innerHTML = dockHTML; } }
+    function dockFor(slug){ if (!dockA) return; var dk = document.getElementById('dock'); if (dk) dk.classList.toggle('off', !slug); if (slug) { dockA.setAttribute('data-pick', slug); dockA.innerHTML = dockHTML.replace('Find my money job', 'Get started now'); } else { dockA.removeAttribute('data-pick'); dockA.innerHTML = dockHTML; } }
     function jump(el){ var se = document.documentElement.style.scrollBehavior; document.documentElement.style.scrollBehavior = 'auto'; if (el) el.scrollIntoView(); else window.scrollTo(0, 0); document.documentElement.style.scrollBehavior = se; }
     function pick(slug){ if (!sel || !slug || !sel.querySelector('option[value="' + slug + '"]')) return; sel.value = slug; sel.classList.toggle('picked', sel.value === slug); }
     var storyEl = document.getElementById('story'), slotHome = document.getElementById('storyHome'), slotHow = document.getElementById('storyHow');
