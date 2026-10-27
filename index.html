@@ -1051,7 +1051,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 .pains-pin{position:relative}
 /* ---------- services bento (Oct 27) ---------- */
 .bento-key{display:flex;flex-wrap:wrap;gap:10px 22px;margin:0 0 18px;font-weight:800;font-size:15px}
-.bento-key span{display:inline-flex;align-items:center;gap:8px}
+.bento-key button{display:inline-flex;align-items:center;gap:8px;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;text-align:left}
 .bento-key i,.bt-grp i{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--forest);color:var(--sun);font:800 12px/1 var(--body);font-style:normal}
 .bento-key .k2 i,.bt-rev .bt-grp i,.bt-web .bt-grp i{background:var(--leaf);color:#fff}
 .bento-key .k3 i,.bt-sms .bt-grp i,.bt-book .bt-grp i{background:var(--sun);color:var(--forest)}
@@ -1126,6 +1126,78 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 @media (max-width:640px){.bento{grid-template-columns:1fr;grid-template-areas:"gbp" "seo" "post" "ai" "rev" "web" "sms" "book"}.bt-vis{min-height:0}.m-grid{gap:3px}}
 ::view-transition-group(svcvis){animation-duration:.5s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
 .cmp-logo{display:inline-flex;line-height:0;--ld:var(--white);--lg:var(--neon)}.cmp-logo svg{height:24px;width:auto}.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ---------- mobile: hero, swipe services, pinned scroll (Oct 27) ---------- */
+.l-short{display:none}
+.bento-nav{display:none}
+@media (max-width:760px){
+  .l-long{display:none}.l-short{display:inline}
+  .hero{padding-top:14px}
+  .hero-grid{gap:18px}
+  .hero-copy{display:contents}
+  .hero h1{order:1}.hero .lede{order:2;font-size:17px}.hero .ctas{order:3}.hero-vis{order:4;padding-bottom:6px}.hero .trust{order:5}
+  .hero .ctas{flex-wrap:nowrap;gap:10px}
+  .hero .ctas .btn{width:auto}
+  .hero .ctas .btn-go{flex:1 1 auto}.hero .ctas .btn-ghost{flex:0 0 auto}
+  .hero .map-cap{margin-top:44px;font-size:22px}
+  .hero .trust{justify-content:center;gap:8px;font-size:13px}
+  .hero .trust span{background:var(--white);border-radius:999px;padding:6px 11px;box-shadow:0 0 0 1px var(--line)}
+  .hero .trust svg{width:15px;height:15px}
+  .hero .ticker{margin-top:28px}
+}
+@media (max-width:640px){
+  .bento-key{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin-inline:calc(-1 * var(--gut));padding:2px var(--gut) 4px;scrollbar-width:none}
+  .bento-key::-webkit-scrollbar{display:none}
+  .bento-key button{flex:none;background:var(--white);border-radius:999px;padding:7px 12px 7px 7px;box-shadow:0 0 0 1px var(--line);font-size:14px}
+  .bento-key em{display:none}
+  .bento{display:flex;position:relative;grid-template-areas:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * var(--gut));padding:6px var(--gut) 10px;scroll-padding-inline:var(--gut);scrollbar-width:none;overscroll-behavior-x:contain}
+  .bento::-webkit-scrollbar{display:none}
+  .bt{flex:0 0 84%;scroll-snap-align:start;min-height:0}
+  .bt:hover,.bt:focus-visible{transform:none}
+  .bt-vis{min-height:190px;flex:0 0 auto}
+  .bt-gbp .bt-vis{padding:14px}
+  .bento{align-items:stretch}
+  .bt-vis{min-height:200px;height:210px;flex:none;overflow:hidden}
+  .bt-gbp .m-gbp{transform:none;padding:12px;gap:7px;font-size:13px}
+  .bt-gbp .m-gbp .m-ph,.bt-gbp .m-btns{display:none}
+  .bt-gbp .m-gbp b{font-size:15px}
+  .bt-txt p{font-size:14px}
+  .bt-gbp .bt-txt h3{font-size:24px}
+  .bento-nav{display:flex;align-items:center;gap:12px;margin:6px 0 4px}
+  .bento-bar{flex:1;height:4px;border-radius:4px;background:var(--line);overflow:hidden}
+  .bento-bar i{display:block;height:100%;width:12.5%;background:var(--forest);border-radius:4px;transition:transform .2s linear;transform-origin:left}
+  .bento-hint{font-size:13px;font-weight:700;color:var(--muted)}
+}
+/* pinned on phones (tall screens, GSAP) */
+html.pin-on .dock{transform:translateY(110%)!important}
+.pinned-m.pinned-m .pin-col{height:calc(100svh - var(--hh,64px));display:flex;flex-direction:column;padding-block:12px 14px!important;box-sizing:border-box}
+.pinned-m.pinned-m .sec-head{margin-bottom:8px!important;gap:2px}
+.pinned-m.pinned-m .sec-head .lede{display:none}
+.pinned-m.pinned-m h2{font-size:24px!important;line-height:1.08}
+.pinned-m.pinned-m .kicker{font-size:13px}
+.pinned-m.pinned-m .prog,.pinned-m.pinned-m .pprog{display:flex!important;gap:6px;margin-bottom:10px!important}
+.pinned-m.pinned-m .prog button,.pinned-m.pinned-m .pprog button{font-size:12px;gap:6px}
+.pinned-m.pinned-m .stages,.pinned-m.pinned-m .pstages{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;gap:12px}
+.pinned-m.pinned-m .stage,.pinned-m.pinned-m .pstage{display:contents}
+.pinned-m.pinned-m .stage-vis,.pinned-m.pinned-m .pvis{grid-area:1/1;min-height:0;display:flex;align-items:center;justify-content:center;overflow:visible;opacity:0;transform:translateX(30px);transition:opacity .4s var(--ease),transform .5s var(--ease)}
+.pinned-m.pinned-m .stage-copy,.pinned-m.pinned-m .pcopy{grid-area:2/1;opacity:0;transform:translateY(14px);transition:opacity .4s var(--ease),transform .45s var(--ease);pointer-events:none;gap:8px}
+.pinned-m.pinned-m .active .stage-vis,.pinned-m.pinned-m .active .pvis{opacity:1;transform:none}
+.pinned-m.pinned-m .active .stage-copy,.pinned-m.pinned-m .active .pcopy{opacity:1;transform:none;pointer-events:auto}
+.pinned-m.pinned-m .past .pvis{transform:translateX(-30px)}
+.pinned-m.pinned-m .fitbox{transform-origin:center center;flex:none}
+.pinned-m.pinned-m .stage-copy h3,.pinned-m.pinned-m .pcopy h3{font-size:22px!important;line-height:1.12}
+.pinned-m.pinned-m .stage-copy p,.pinned-m.pinned-m .pcopy p{font-size:15px;line-height:1.4}
+.pinned-m.pinned-m .stage-copy ul,.pinned-m.pinned-m .stage-copy .later{display:none}
+.pinned-m.pinned-m .step,.pinned-m.pinned-m .pstep{font-size:14px}.pinned-m.pinned-m .step i,.pinned-m.pinned-m .pstep i{width:30px;height:30px;font-size:14px}
+.pinned-m.pinned-m .pcopy .pfix{padding-top:8px;font-size:15px}
+.pinned-m.pinned-m .phone{width:300px}
+.pinned-m.pinned-m .pv{width:340px;min-height:0}
+/* service pages on phones: the bottom bar is the one main button (Oct 27) */
+@media (max-width:760px){
+  .sp-hero .ctas .btn-go{display:none}
+  .sp-hero .ctas .btn-ghost{display:inline-flex;width:auto;min-height:44px;padding:0;background:none;box-shadow:none;color:var(--leaf-d);font-weight:800;text-decoration:none;min-height:32px;gap:6px}
+  .sp-hero .ctas .btn-ghost::after{content:"\2192"}
+  .sp-hero .ctas{margin-top:-6px}
+}
 /* Finding steps + scorecard (How it works) */
 .find{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:f}
 .find li{counter-increment:f;background:var(--white);border-radius:24px;padding:20px;box-shadow:0 0 0 1px rgba(11,31,23,.08);display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -1188,10 +1260,10 @@ body:has(.mnav:not([hidden])) .dock{display:none}
  <div class="wrap hero-grid">
   <div class="hero-copy">
    <h1><span class="ln"><span>More of the jobs</span></span><span class="ln"><span><mark>you actually want.</mark></span></span></h1>
-   <p class="lede">Every shop has a money job: the install, the replacement, the big project that pays best. We make you the name people find on Google when they search for it, anywhere in your city.</p>
+   <p class="lede"><span class="l-long">Every shop has a money job: the install, the replacement, the big project that pays best. We make you the name people find on Google when they search for it, anywhere in your city.</span><span class="l-short">We make you the name people find on Google for the job that pays you best, anywhere in your city.</span></p>
    <div class="ctas">
     <a class="btn btn-go" href="#audit">Find my money job <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a>
-    <a class="btn btn-ghost" href="#pricing">See pricing</a>
+    <a class="btn btn-ghost" href="#pricing"><span class="l-long">See pricing</span><span class="l-short">Pricing</span></a>
    </div>
    <div class="trust">
     <span><svg aria-hidden="true"><use href="#chk"/></svg>No contracts</span>
@@ -1232,7 +1304,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 <!-- WHERE ARE YOU ON GOOGLE (pinned pain/outcome, Oct 27) -->
 <section class="pains" id="problem" aria-labelledby="pains-h">
  <div class="pains-pin" id="painsPin">
- <div class="wrap pains-in">
+ <div class="wrap pains-in pin-col">
   <div class="sec-head pains-head">
    <span class="kicker" data-rv>Where are you on Google?</span>
    <h2 id="pains-h" data-rv>Hard to find, or found for the wrong jobs?</h2>
@@ -1253,7 +1325,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>No profile, an unverified one, or one with no photos, no reviews and no website behind it. People who need exactly what you do call someone else, and you never hear about it.</p>
      <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We put you on the map: a verified, complete profile built around your money job.</p>
     </div>
-    <div class="pvis" data-rv><div class="pv v-none">
+    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-none">
      <div class="pbar an" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</div>
      <div class="plist">
       <div class="an" style="--k:1"><span class="rk">1</span><span><b>Competitor A</b><small>★ 4.8 · 212 reviews</small></span></div>
@@ -1262,7 +1334,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
       <div class="ghost an" style="--k:5"><span class="rk">?</span><span><b>Your business</b><small>Not showing up</small></span></div>
      </div>
      <span class="tag-ex">Example</span>
-    </div></div>
+    </div></div></div>
    </article>
 
    <article class="pstage" data-i="1">
@@ -1272,12 +1344,12 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>Near your shop you look fine. A short drive away you disappear, usually behind shops with more reviews. Most of your city never sees you.</p>
      <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We spread your reach across your whole service area, and map it for you every month.</p>
     </div>
-    <div class="pvis" data-rv><div class="pv v-grid">
+    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-grid">
      <div class="pbar an" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>water heater repair</div>
      <div class="pgrid" role="img" aria-label="Example map: top three near the shop, not found further out"><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.1">20+</span><span class="y an" style="--k:3.5">8</span><span class="y an" style="--k:3.2">8</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.1">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="y an" style="--k:3.5">8</span><span class="g an" style="--k:2.6">2</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:2.6">2</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="y an" style="--k:3.2">8</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:1.0">1</span><span class="g an" style="--k:2.1">2</span><span class="y an" style="--k:3.2">8</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="y an" style="--k:3.5">8</span><span class="g an" style="--k:2.6">2</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:2.6">2</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.1">20+</span><span class="y an" style="--k:3.5">8</span><span class="y an" style="--k:3.2">8</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.1">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span></div>
      <div class="plegend an" style="--k:6"><span><i class="g"></i>Top 3</span><span><i class="y"></i>Page 1</span><span><i class="x"></i>Not found</span></div>
      <span class="tag-ex">Example</span>
-    </div></div>
+    </div></div></div>
    </article>
 
    <article class="pstage" data-i="2">
@@ -1287,12 +1359,12 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>You come up when people search for your trade, so the phone rings for small repairs and price checks. The search for your best-paying job goes to someone else.</p>
      <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We aim Google at your money job: the work you'd take every day.</p>
     </div>
-    <div class="pvis" data-rv><div class="pv v-two">
+    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-two">
      <div class="pq an" style="--k:0"><div class="pbar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</div><div class="out ok"><svg aria-hidden="true"><use href="#chk"/></svg>You: #2 on the map</div></div>
      <div class="pq an" style="--k:2"><div class="pbar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>french drain replacement</div><div class="out no"><b>#1 Competitor A</b><span>You: not in the top 20</span></div></div>
      <p class="pcap an" style="--k:4">Same business. Two searches. Very different calls.</p>
      <span class="tag-ex">Example</span>
-    </div></div>
+    </div></div></div>
    </article>
 
    <article class="pstage" data-i="3">
@@ -1302,14 +1374,14 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>The closer a search gets to one job in one place, the closer that person is to calling. Fewer people search for it, but each call is a big ticket, and often nobody nearby has a real answer for it yet.</p>
      <p class="pfix"><a href="#how-it-works">See how we find your searches <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a></p>
     </div>
-    <div class="pvis" data-rv><div class="pv v-ladder">
+    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-ladder">
      <ol class="steps3">
       <li class="an" style="--k:0"><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</span><span class="m">Lots of searches · Maybe hiring</span></li>
       <li class="an" style="--k:1.5"><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>drain repair</span><span class="m">Fewer searches · Likely hiring</span></li>
       <li class="an win" style="--k:3"><span class="flag">Your money job</span><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>french drain replacement laval</span><span class="m">A handful of searches · $18,000+ job</span></li>
      </ol>
      <span class="tag-ex">Example</span>
-    </div></div>
+    </div></div></div>
    </article>
 
   </div>
@@ -1333,7 +1405,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
    <h2 id="svc-h" data-rv>Everything that brings in the call. Done for you.</h2>
    <p class="lede" data-rv>Eight services, one team. Tap any one to see what we do, a full example and tips you can use today.</p>
   </div>
-  <div class="bento-key" data-rv><span><i>1</i>Get found <em>Included in Get Found</em></span><span class="k2"><i>2</i>Get picked <em>Reviews included · websites quoted</em></span><span class="k3"><i>3</i>Get the call <em>Add-ons, priced separately</em></span></div>
+  <div class="bento-key" data-rv><button type="button" data-goto="bt-gbp"><i>1</i>Get found <em>Included in Get Found</em></button><button type="button" class="k2" data-goto="bt-rev"><i>2</i>Get picked <em>Reviews included · websites quoted</em></button><button type="button" class="k3" data-goto="bt-sms"><i>3</i>Get the call <em>Add-ons, priced separately</em></button></div>
   <div class="bento" data-stagger>
     <a class="bt bt-gbp" href="#google-business-profile" data-rv>
      <div class="bt-vis" aria-hidden="true"><div class="m-gbp"><div class="an" style="--k:0"><b>Your Business</b><span class="st">★★★★★ <em>4.9 · 112 reviews</em></span><span class="chip">Plumber</span></div>
@@ -1371,6 +1443,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <div class="bt-txt"><span class="bt-grp"><i>3</i>Get the call · add-on</span><h3>AI assistants and online booking</h3><p>Take bookings and custom orders day or night. You confirm the details.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
     </a>
   </div>
+  <div class="bento-nav" aria-hidden="true"><span class="bento-bar"><i id="bentoBar"></i></span><span class="bento-hint">Swipe for all 8</span></div>
   <div class="hub-more" data-rv><a class="btn btn-ghost" href="#how-it-works">See exactly how it works <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a><p>Not sure what you need? <a href="#audit">The free audit tells you.</a></p></div>
  </div>
 </section>
@@ -1668,7 +1741,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 <div id="storyHow" hidden></div>
 <section class="story" id="story" aria-labelledby="story-h">
  <div class="story-pin" id="storyPin">
- <div class="wrap story-in">
+ <div class="wrap story-in pin-col">
   <div class="sec-head" style="margin-bottom:clamp(28px,4vw,44px)">
    <span class="kicker" data-rv>The Money Job Method</span>
    <h2 id="story-h" data-rv>Three steps to more of the jobs that pay you best.</h2>
@@ -1687,7 +1760,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>We rebuild your Google profile around the job that pays you best, then spread your reach for that search street by street, suburb by suburb.</p>
      <ul><li>The right main category for your business, with your money job leading the services, description and posts</li><li>A page on your website for that job in your city</li><li>Its keywords worked into your profile, posts and listings</li></ul>
     </div>
-    <div class="stage-vis" data-rv>
+    <div class="stage-vis" data-rv><div class="fitbox">
      <div class="phone"><div class="screen"><span class="notch"></span>
       <div class="scr s-map">
        <div class="bar an" style="--k:0"><svg aria-hidden="true"><use href="#srch"/></svg>ac replacement near me</div>
@@ -1704,7 +1777,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
        </div>
       </div>
       <span class="tag-ex">Example</span>
-     </div></div>
+     </div></div></div>
     </div>
    </article>
 
@@ -1715,7 +1788,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <p>Customers shopping for a big job read reviews about that job. We make sure they find plenty, plus photos and short videos of the work itself.</p>
      <ul><li>Review requests after every job, especially your money jobs</li><li>Replies that name the job and the area</li><li>Weekly posts showing that work, start to finish</li></ul>
     </div>
-    <div class="stage-vis" data-rv>
+    <div class="stage-vis" data-rv><div class="fitbox">
      <div class="phone"><div class="screen"><span class="notch"></span>
       <div class="scr s-rev">
        <div class="score an" style="--k:0"><b>4.9</b><div><span class="stars">★★★★★</span><br><span>Google reviews</span></div></div>
@@ -1724,7 +1797,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
        <div class="rv an" style="--k:3"><div class="who"><span>Marcus T.</span><span class="stars">★★★★★</span></div>Fixed our furnace the same afternoon.</div>
       </div>
       <span class="tag-ex">Example</span>
-     </div></div>
+     </div></div></div>
     </div>
    </article>
 
@@ -1736,7 +1809,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
      <ul><li>Calls straight from Google Maps</li><li>Bigger tickets, better margins</li><li>A monthly map of your money-job search</li></ul>
      <span class="later">More calls than you can answer? Add text-back, booking and AI assistants.</span>
     </div>
-    <div class="stage-vis" data-rv>
+    <div class="stage-vis" data-rv><div class="fitbox">
      <div class="phone"><div class="screen"><span class="notch"></span>
       <div class="scr s-call">
        <span class="src an" style="--k:0">Incoming call from Google Maps</span>
@@ -1746,7 +1819,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
        <div class="btns an" style="--k:4"><span class="no"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></span><span class="yes"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span></div>
       </div>
       <span class="tag-ex">Example</span>
-     </div></div>
+     </div></div></div>
     </div>
    </article>
 
@@ -2304,6 +2377,21 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 
 
 
+
+  /* services swipe progress + group chips (Oct 27) */
+  (function(){
+    var row = document.querySelector('.bento'), bar = document.getElementById('bentoBar');
+    if (!row) return;
+    function upd(){ var max = row.scrollWidth - row.clientWidth; var f = max > 0 ? row.scrollLeft / max : 0; if (bar) bar.style.transform = 'translateX(' + (f * 700) + '%)'; }
+    row.addEventListener('scroll', upd, { passive: true }); upd();
+    document.querySelectorAll('.bento-key [data-goto]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var t = row.querySelector('.' + b.dataset.goto); if (!t) return;
+        if (row.scrollWidth > row.clientWidth + 4) row.scrollTo({ left: t.offsetLeft - parseFloat(getComputedStyle(row).paddingLeft || 0), behavior: 'smooth' });
+        else t.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+  })();
   /* services bento: animate minis on view; morph tile into service page (Oct 27) */
   var bts = [].slice.call(document.querySelectorAll('.bt'));
   if (!reduce && 'IntersectionObserver' in window) {
@@ -2334,7 +2422,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
   var pprog = [].slice.call(document.querySelectorAll('#pprog button'));
   function pLive(el, on){ el.querySelector('.pvis').classList.toggle('live', on); }
   if (!reduce && 'IntersectionObserver' in window) {
-    var pio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !document.querySelector('.pains.pinned')) e.target.closest('.pvis').classList.add('live'); }); }, { threshold: 0.35 });
+    var pio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !document.querySelector('.pains.pinned, .pains.pinned-m')) e.target.closest('.pvis').classList.add('live'); }); }, { threshold: 0.35 });
     pst.forEach(function(s){ pio.observe(s.querySelector('.pv')); });
   } else { pst.forEach(function(s){ pLive(s, true); }); }
   function pAct(i){
@@ -2368,7 +2456,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
   function setLive(el, on){ el.querySelector('.stage-vis').classList.toggle('live', on); }
   // stacked mode (mobile / no GSAP): each screen animates as it enters
   if (!reduce && 'IntersectionObserver' in window) {
-    var sio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !document.querySelector('.story.pinned')) e.target.closest('.stage-vis').classList.add('live'); }); }, { threshold: 0.35 });
+    var sio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !document.querySelector('.story.pinned, .story.pinned-m')) e.target.closest('.stage-vis').classList.add('live'); }); }, { threshold: 0.35 });
     stages.forEach(function(s){ sio.observe(s.querySelector('.phone')); });
   } else { stages.forEach(function(s){ setLive(s, true); }); }
 
@@ -2400,6 +2488,60 @@ body:has(.mnav:not([hidden])) .dock{display:none}
       return function(){ story.classList.remove('pinned'); stages.forEach(function(s){ s.classList.add('active'); setLive(s, true); }); prog.forEach(function(b){ b.onclick = null; }); };
     });
 
+
+    /* phones: pinned scroll for both stories, on tall screens (Oct 27) */
+    ScrollTrigger.config({ ignoreMobileResize: true });
+    mm.add('(max-width: 899px) and (min-height: 700px)', function(){
+      var hh = (document.getElementById('hdr') || {}).offsetHeight || 64;
+      document.documentElement.style.setProperty('--hh', hh + 'px');
+      function fit(sec){
+        sec.querySelectorAll('.fitbox').forEach(function(f){
+          var box = f.parentNode, ch = f.firstElementChild;
+          f.style.transform = '';
+          var h = box.clientHeight, w = box.clientWidth, nh = ch.offsetHeight, nw = ch.offsetWidth;
+          var k = Math.min(1, h / nh, w / nw);
+          f.style.transform = 'scale(' + k.toFixed(3) + ')';
+          f.style.margin = (-(nh * (1 - k)) / 2) + 'px ' + (-(nw * (1 - k)) / 2) + 'px';
+        });
+      }
+      function make(secId, pinSel, list, progBtns, act, n){
+        var sec = document.getElementById(secId); if (!sec) return null;
+        sec.classList.add('pinned-m');
+        sec.querySelectorAll('[data-rv]').forEach(function(el){ el.classList.add('in'); });
+        var cur = -1, bars = progBtns.map(function(b){ return b.querySelector('i'); });
+        var snaps = [0]; for (var k = 0; k < n; k++) snaps.push((k + 0.5) / n); snaps.push(1);
+        var st = ScrollTrigger.create({
+          trigger: pinSel, start: 'top top+=' + hh, end: '+=' + Math.round(innerHeight * 0.75 * n),
+          pin: true, anticipatePin: 1,
+          snap: { snapTo: snaps, duration: { min: 0.2, max: 0.45 }, delay: 0.06, ease: 'power1.inOut' },
+          onToggle: function(self){ document.documentElement.classList.toggle('pin-on', self.isActive); },
+          onRefresh: function(){ fit(sec); },
+          onUpdate: function(self){
+            var p = self.progress * n, i = Math.min(n - 1, Math.floor(p));
+            bars.forEach(function(b, k){ b.style.transform = 'scaleX(' + Math.max(0, Math.min(1, p - k)) + ')'; });
+            if (i !== cur){ cur = i; act(i); }
+          }
+        });
+        act(0); fit(sec);
+        progBtns.forEach(function(b){ b.onclick = function(){ var k = +b.dataset.go; scrollTo({ top: st.start + (st.end - st.start) * ((k + 0.5) / n), behavior: 'smooth' }); }; });
+        return function(){
+          sec.classList.remove('pinned-m');
+          sec.querySelectorAll('.fitbox').forEach(function(f){ f.style.transform = ''; f.style.margin = ''; });
+          progBtns.forEach(function(b){ b.onclick = null; });
+        };
+      }
+      var u1 = make('problem', '#painsPin', pst, pprog, pAct, pst.length);
+      var u2 = make('story', '#storyPin', stages, prog, activate, stages.length);
+      var onR = function(){ ['problem','story'].forEach(function(id){ var e = document.getElementById(id); if (e) fit(e); }); };
+      addEventListener('resize', onR);
+      return function(){
+        removeEventListener('resize', onR);
+        document.documentElement.classList.remove('pin-on');
+        if (u1) u1(); if (u2) u2();
+        pst.forEach(function(s){ s.classList.add('active'); s.classList.remove('past'); pLive(s, true); });
+        stages.forEach(function(s){ s.classList.add('active'); setLive(s, true); });
+      };
+    });
     /* scroll-linked city band, all sizes (lighter on phones) */
     var wide = matchMedia('(min-width: 760px)').matches;
     gsap.fromTo('#r1', { xPercent: 0 }, { xPercent: wide ? -22 : -34, ease: 'none', scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: true } });
