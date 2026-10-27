@@ -1135,9 +1135,8 @@ body:has(.mnav:not([hidden])) .dock{display:none}
   .hero-grid{gap:18px}
   .hero-copy{display:contents}
   .hero h1{order:1}.hero .lede{order:2;font-size:17px}.hero .ctas{order:3}.hero-vis{order:4;padding-bottom:6px}.hero .trust{order:5}
-  .hero .ctas{flex-wrap:nowrap;gap:10px}
-  .hero .ctas .btn{width:auto}
-  .hero .ctas .btn-go{flex:1 1 auto}.hero .ctas .btn-ghost{flex:0 0 auto}
+  .hero .ctas{flex-direction:column;gap:10px}
+  .hero .ctas .btn{width:100%}
   .hero .map-cap{margin-top:44px;font-size:22px}
   .hero .trust{justify-content:center;gap:8px;font-size:13px}
   .hero .trust span{background:var(--white);border-radius:999px;padding:6px 11px;box-shadow:0 0 0 1px var(--line)}
@@ -1167,7 +1166,9 @@ body:has(.mnav:not([hidden])) .dock{display:none}
   .bento-bar i{display:block;height:100%;width:12.5%;background:var(--forest);border-radius:4px;transition:transform .2s linear;transform-origin:left}
   .bento-hint{font-size:13px;font-weight:700;color:var(--muted)}
 }
-/* pinned on phones (tall screens, GSAP) */
+/* pinned on phones (GSAP) */
+@media (max-height:719px){.pinned-m.pinned-m h2{display:none}.pinned-m.pinned-m .pcopy .pfix{font-size:14px}.pinned-m.pinned-m .stage-copy p,.pinned-m.pinned-m .pcopy p{font-size:14px}}
+@media (max-height:600px){.pinned-m.pinned-m .pcopy .pfix{display:none}}
 html.pin-on .dock{transform:translateY(110%)!important}
 .pinned-m.pinned-m .pin-col{height:calc(100svh - var(--hh,64px));display:flex;flex-direction:column;padding-block:12px 14px!important;box-sizing:border-box}
 .pinned-m.pinned-m .sec-head{margin-bottom:8px!important;gap:2px}
@@ -1263,7 +1264,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
    <p class="lede"><span class="l-long">Every shop has a money job: the install, the replacement, the big project that pays best. We make you the name people find on Google when they search for it, anywhere in your city.</span><span class="l-short">We make you the name people find on Google for the job that pays you best, anywhere in your city.</span></p>
    <div class="ctas">
     <a class="btn btn-go" href="#audit">Find my money job <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a>
-    <a class="btn btn-ghost" href="#pricing"><span class="l-long">See pricing</span><span class="l-short">Pricing</span></a>
+    <a class="btn btn-ghost" href="#pricing">See pricing</a>
    </div>
    <div class="trust">
     <span><svg aria-hidden="true"><use href="#chk"/></svg>No contracts</span>
@@ -2491,7 +2492,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
 
     /* phones: pinned scroll for both stories, on tall screens (Oct 27) */
     ScrollTrigger.config({ ignoreMobileResize: true });
-    mm.add('(max-width: 899px) and (min-height: 700px)', function(){
+    mm.add('(max-width: 899px) and (min-height: 520px)', function(){
       var hh = (document.getElementById('hdr') || {}).offsetHeight || 64;
       document.documentElement.style.setProperty('--hh', hh + 'px');
       function fit(sec){
