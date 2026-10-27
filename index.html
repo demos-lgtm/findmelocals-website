@@ -1056,7 +1056,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
 .bento-key .k2 i,.bt-rev .bt-grp i,.bt-web .bt-grp i{background:var(--leaf);color:#fff}
 .bento-key .k3 i,.bt-sms .bt-grp i,.bt-book .bt-grp i{background:var(--sun);color:var(--forest)}
 .bento-key em{font-style:normal;font-weight:600;color:var(--muted);font-size:14px}
-.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;grid-template-areas:"gbp gbp seo seo" "gbp gbp post ai" "rev rev web web" "sms sms book book"}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;grid-template-areas:"gbp gbp seo seo" "gbp gbp post ai" "rev rev web web" "band band band band" "sms sms book book"}
 .bt{position:relative;display:flex;flex-direction:column;gap:16px;min-width:0;padding:clamp(18px,2vw,24px);border-radius:30px;background:var(--white);color:var(--ink);text-decoration:none;box-shadow:0 0 0 1px rgba(11,31,23,.07);overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .bt:hover,.bt:focus-visible{transform:translateY(-4px);box-shadow:0 30px 50px -30px rgba(11,31,23,.45),0 0 0 1px rgba(11,31,23,.1)}
 .bt:focus-visible{outline:3px solid var(--leaf);outline-offset:3px}
@@ -1122,7 +1122,7 @@ body:has(.mnav:not([hidden])) .dock{display:none}
   .bt .m-grid .an{transform:scale(.2)}
   .bt.live .an{opacity:1;transform:none}
 }
-@media (max-width:1060px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"gbp gbp" "seo seo" "post ai" "rev rev" "web web" "sms book"}}
+@media (max-width:1060px){.bento{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-areas:"gbp gbp" "seo seo" "post ai" "rev rev" "web web" "band band" "sms book"}}
 @media (max-width:640px){.bento{grid-template-columns:1fr;grid-template-areas:"gbp" "seo" "post" "ai" "rev" "web" "sms" "book"}.bt-vis{min-height:0}.m-grid{gap:3px}}
 ::view-transition-group(svcvis){animation-duration:.5s;animation-timing-function:cubic-bezier(.22,1,.36,1)}
 .cmp-logo{display:inline-flex;line-height:0;--ld:var(--white);--lg:var(--neon)}.cmp-logo svg{height:24px;width:auto}.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -1199,6 +1199,44 @@ html.pin-on .dock{transform:translateY(110%)!important}
   .sp-hero .ctas .btn-ghost::after{content:"\2192"}
   .sp-hero .ctas{margin-top:-6px}
 }
+/* ---------- sound familiar cards (Oct 27) ---------- */
+.fam-s{padding-top:clamp(40px,6vw,72px)}
+.fam{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.fam-card{display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--mint);border-radius:30px;padding:clamp(16px,1.8vw,22px)}
+.fam-vis{border-radius:22px;overflow:hidden;height:272px;display:flex;align-items:flex-start;justify-content:center;background:var(--white);box-shadow:0 0 0 1px rgba(11,31,23,.06)}
+.fam-vis .pv{width:100%;min-height:0;box-shadow:none;border-radius:0;padding:16px;gap:10px;transform-origin:top center}
+.fam-vis .plist div{padding:7px 12px}.fam-vis .plist{gap:6px}.fam-vis .plist div:nth-child(3){display:none}.fam-vis .pv .tag-ex{display:none}
+.fam-vis .pgrid{width:176px;margin-inline:auto;gap:5px;padding:8px}.fam-vis .pgrid span{font-size:8px}
+.fam-vis .plegend{font-size:12px;justify-content:center}
+.fam-vis .pq{padding:10px}.fam-vis .pcap{display:none}.fam-vis .v-two{justify-content:flex-start}
+.fam-card h3{font-size:clamp(22px,2vw,26px)}
+.fam-card p{margin:0;color:var(--ink-2)}
+.fam-card .pfix{margin-top:auto;display:flex;gap:10px;align-items:flex-start;padding-top:12px;border-top:2px solid rgba(11,31,23,.12);font-weight:800;color:var(--ink)}
+.fam-next{display:flex;align-items:center;gap:8px;justify-content:center;margin:28px 0 0;font-weight:800;color:var(--leaf-d)}
+.fam-next .ar{width:18px;height:18px;transform:rotate(90deg)}
+@media (prefers-reduced-motion:no-preference){.fam-card.live .pv .an{opacity:1;transform:none}.fam-card.live .ghost{animation:nudge .5s var(--ease) 1.4s 2}}
+@media (max-width:900px){.fam{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:calc(-1 * var(--gut));padding:4px var(--gut) 10px;scroll-padding-inline:var(--gut);scrollbar-width:none}.fam::-webkit-scrollbar{display:none}.fam-card{flex:0 0 84%;max-width:380px;scroll-snap-align:start}}
+/* story step 1: search narrows to the money job (Oct 27) */
+.qlad{display:flex;gap:4px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+.qlad span{flex:1;text-align:center;padding:4px 2px;border-radius:999px;background:#E3EEE7;color:var(--muted)}
+.qlad .c3{background:var(--sun);color:var(--forest)}
+.qs{display:grid;flex:1;min-width:0}.qs span{grid-area:1/1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.qs .q1,.qs .q2{opacity:0}
+@media (prefers-reduced-motion:no-preference){
+  .live .qs .q1{animation:q1 2.6s linear both}.live .qs .q2{animation:q2 2.6s linear both}.live .qs .q3{animation:q3 2.6s linear both}
+  .live .qlad .c1{animation:c1 2.6s linear both}.live .qlad .c2{animation:c2 2.6s linear both}.live .qlad .c3{animation:c3 2.6s linear both}
+}
+@keyframes q1{0%,30%{opacity:1}36%,100%{opacity:0}}
+@keyframes q2{0%,30%{opacity:0}36%,63%{opacity:1}70%,100%{opacity:0}}
+@keyframes q3{0%,63%{opacity:0}70%,100%{opacity:1}}
+@keyframes c1{0%,33%{background:var(--forest);color:#fff}36%,100%{background:#E3EEE7;color:var(--muted)}}
+@keyframes c2{0%,33%{background:#E3EEE7;color:var(--muted)}36%,66%{background:var(--forest);color:#fff}69%,100%{background:#E3EEE7;color:var(--muted)}}
+@keyframes c3{0%,66%{background:#E3EEE7;color:var(--muted)}69%,100%{background:var(--sun);color:var(--forest)}}
+/* never miss a call add-on (Oct 27) */
+.bt-band{grid-area:band;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:14px 20px;border-radius:22px;background:var(--forest);color:var(--white);font-weight:700}
+.bt-band b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--sun)}
+.bt-band span{color:#C9DBD0;font-size:15px}
+@media (max-width:640px){.bt-band{display:none}}
 /* Finding steps + scorecard (How it works) */
 .find{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:f}
 .find li{counter-increment:f;background:var(--white);border-radius:24px;padding:20px;box-shadow:0 0 0 1px rgba(11,31,23,.08);display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -1302,31 +1340,17 @@ html.pin-on .dock{transform:translateY(110%)!important}
 </section>
 
 <!-- PROBLEMS -->
-<!-- WHERE ARE YOU ON GOOGLE (pinned pain/outcome, Oct 27) -->
-<section class="pains" id="problem" aria-labelledby="pains-h">
- <div class="pains-pin" id="painsPin">
- <div class="wrap pains-in pin-col">
-  <div class="sec-head pains-head">
-   <span class="kicker" data-rv>Where are you on Google?</span>
-   <h2 id="pains-h" data-rv>Hard to find, or found for the wrong jobs?</h2>
-   <p class="lede" data-rv>Most owners we talk to are in one of three spots. Wherever you start, we aim for the same finish: the call for your money job. And we do the work, so you never have to become an SEO expert.</p>
+<!-- SOUND FAMILIAR (Oct 27: replaces the pinned "Where are you on Google?" section) -->
+<section class="sec fam-s" id="problem" aria-labelledby="fam-h">
+ <div class="wrap">
+  <div class="sec-head">
+   <span class="kicker" data-rv>Sound familiar?</span>
+   <h2 id="fam-h" data-rv>Hard to find, or found for the wrong jobs?</h2>
+   <p class="lede" data-rv>Most owners we talk to are in one of these three spots. Wherever you start, the fix starts with your money job. And we do the work, so you never have to become an SEO expert.</p>
   </div>
-  <div class="pprog" id="pprog" role="list" aria-label="Where you might be">
-   <button type="button" role="listitem" data-go="0" aria-current="step"><span class="tr"><i></i></span>Not found</button>
-   <button type="button" role="listitem" data-go="1"><span class="tr"><i></i></span>Found nearby</button>
-   <button type="button" role="listitem" data-go="2"><span class="tr"><i></i></span>Wrong jobs</button>
-   <button type="button" role="listitem" data-go="3"><span class="tr"><i></i></span>The goal</button>
-  </div>
-  <div class="pstages">
-
-   <article class="pstage active" data-i="0">
-    <div class="pcopy" data-rv>
-     <span class="pstep"><i>1</i>Not found yet</span>
-     <h3>Google barely knows you're there.</h3>
-     <p>No profile, an unverified one, or one with no photos, no reviews and no website behind it. People who need exactly what you do call someone else, and you never hear about it.</p>
-     <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We put you on the map: a verified, complete profile built around your money job.</p>
-    </div>
-    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-none">
+  <div class="fam" data-stagger>
+   <article class="fam-card" data-rv>
+    <div class="fam-vis" aria-hidden="true"><div class="pv v-none">
      <div class="pbar an" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</div>
      <div class="plist">
       <div class="an" style="--k:1"><span class="rk">1</span><span><b>Competitor A</b><small>★ 4.8 · 212 reviews</small></span></div>
@@ -1335,58 +1359,38 @@ html.pin-on .dock{transform:translateY(110%)!important}
       <div class="ghost an" style="--k:5"><span class="rk">?</span><span><b>Your business</b><small>Not showing up</small></span></div>
      </div>
      <span class="tag-ex">Example</span>
-    </div></div></div>
+    </div></div>
+    <span class="pstep"><i>1</i>Not found yet</span>
+    <h3>Google barely knows you're there.</h3>
+    <p>No profile, an unverified one, or nothing behind it. People who need you call someone else.</p>
+    <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We put you on the map, built around your money job.</p>
    </article>
-
-   <article class="pstage" data-i="1">
-    <div class="pcopy" data-rv>
-     <span class="pstep"><i>2</i>Found nearby</span>
-     <h3>You show up, but only around the corner.</h3>
-     <p>Near your shop you look fine. A short drive away you disappear, usually behind shops with more reviews. Most of your city never sees you.</p>
-     <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We spread your reach across your whole service area, and map it for you every month.</p>
-    </div>
-    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-grid">
+   <article class="fam-card" data-rv>
+    <div class="fam-vis" aria-hidden="true"><div class="pv v-grid">
      <div class="pbar an" style="--k:0"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>water heater repair</div>
      <div class="pgrid" role="img" aria-label="Example map: top three near the shop, not found further out"><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.1">20+</span><span class="y an" style="--k:3.5">8</span><span class="y an" style="--k:3.2">8</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.1">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="y an" style="--k:3.5">8</span><span class="g an" style="--k:2.6">2</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:2.6">2</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="y an" style="--k:3.2">8</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:1.0">1</span><span class="g an" style="--k:2.1">2</span><span class="y an" style="--k:3.2">8</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="y an" style="--k:3.5">8</span><span class="g an" style="--k:2.6">2</span><span class="g an" style="--k:2.1">2</span><span class="g an" style="--k:2.6">2</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.1">20+</span><span class="y an" style="--k:3.5">8</span><span class="y an" style="--k:3.2">8</span><span class="y an" style="--k:3.5">8</span><span class="x an" style="--k:4.1">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:4.3">20+</span><span class="x an" style="--k:4.5">20+</span><span class="x an" style="--k:5.0">20+</span><span class="x an" style="--k:5.7">20+</span></div>
      <div class="plegend an" style="--k:6"><span><i class="g"></i>Top 3</span><span><i class="y"></i>Page 1</span><span><i class="x"></i>Not found</span></div>
      <span class="tag-ex">Example</span>
-    </div></div></div>
+    </div></div>
+    <span class="pstep"><i>2</i>Found nearby only</span>
+    <h3>You show up, but only around the corner.</h3>
+    <p>A short drive from your shop, you disappear behind businesses with more reviews.</p>
+    <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We spread your reach across your whole city.</p>
    </article>
-
-   <article class="pstage" data-i="2">
-    <div class="pcopy" data-rv>
-     <span class="pstep"><i>3</i>Found for the wrong jobs</span>
-     <h3>You're doing OK, just not for the jobs that pay.</h3>
-     <p>You come up when people search for your trade, so the phone rings for small repairs and price checks. The search for your best-paying job goes to someone else.</p>
-     <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We aim Google at your money job: the work you'd take every day.</p>
-    </div>
-    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-two">
+   <article class="fam-card" data-rv>
+    <div class="fam-vis" aria-hidden="true"><div class="pv v-two">
      <div class="pq an" style="--k:0"><div class="pbar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</div><div class="out ok"><svg aria-hidden="true"><use href="#chk"/></svg>You: #2 on the map</div></div>
      <div class="pq an" style="--k:2"><div class="pbar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>french drain replacement</div><div class="out no"><b>#1 Competitor A</b><span>You: not in the top 20</span></div></div>
      <p class="pcap an" style="--k:4">Same business. Two searches. Very different calls.</p>
      <span class="tag-ex">Example</span>
-    </div></div></div>
+    </div></div>
+    <span class="pstep"><i>3</i>Found for the wrong jobs</span>
+    <h3>Busy, just not with the jobs that pay.</h3>
+    <p>You come up for your trade, so the phone rings for small stuff. Your best job goes to someone else.</p>
+    <p class="pfix"><svg aria-hidden="true"><use href="#chk"/></svg>We aim Google at your money job.</p>
    </article>
-
-   <article class="pstage" data-i="3">
-    <div class="pcopy" data-rv>
-     <span class="pstep"><i>4</i>The goal</span>
-     <h3>You don't need more searches. You need the right ones.</h3>
-     <p>The closer a search gets to one job in one place, the closer that person is to calling. Fewer people search for it, but each call is a big ticket, and often nobody nearby has a real answer for it yet.</p>
-     <p class="pfix"><a href="#how-it-works">See how we find your searches <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a></p>
-    </div>
-    <div class="pvis" data-rv><div class="fitbox"><div class="pv v-ladder">
-     <ol class="steps3">
-      <li class="an" style="--k:0"><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>plumber near me</span><span class="m">Lots of searches · Maybe hiring</span></li>
-      <li class="an" style="--k:1.5"><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>drain repair</span><span class="m">Fewer searches · Likely hiring</span></li>
-      <li class="an win" style="--k:3"><span class="flag">Your money job</span><span class="q"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>french drain replacement laval</span><span class="m">A handful of searches · $18,000+ job</span></li>
-     </ol>
-     <span class="tag-ex">Example</span>
-    </div></div></div>
-   </article>
-
   </div>
- </div>
+  <p class="fam-next" data-rv>Here's how we fix all three <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></p>
  </div>
 </section>
 
@@ -1406,7 +1410,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
    <h2 id="svc-h" data-rv>Everything that brings in the call. Done for you.</h2>
    <p class="lede" data-rv>Eight services, one team. Tap any one to see what we do, a full example and tips you can use today.</p>
   </div>
-  <div class="bento-key" data-rv><button type="button" data-goto="bt-gbp"><i>1</i>Get found <em>Included in Get Found</em></button><button type="button" class="k2" data-goto="bt-rev"><i>2</i>Get picked <em>Reviews included · websites quoted</em></button><button type="button" class="k3" data-goto="bt-sms"><i>3</i>Get the call <em>Add-ons, priced separately</em></button></div>
+  <div class="bento-key" data-rv><button type="button" data-goto="bt-gbp"><i>1</i>Get found <em>Included in Get Found</em></button><button type="button" class="k2" data-goto="bt-rev"><i>2</i>Get picked <em>Reviews included · websites quoted</em></button><button type="button" class="k3" data-goto="bt-sms"><i>3</i>Get the call <em>Never Miss a Call add-on</em></button></div>
   <div class="bento" data-stagger>
     <a class="bt bt-gbp" href="#google-business-profile" data-rv>
      <div class="bt-vis" aria-hidden="true"><div class="m-gbp"><div class="an" style="--k:0"><b>Your Business</b><span class="st">★★★★★ <em>4.9 · 112 reviews</em></span><span class="chip">Plumber</span></div>
@@ -1435,13 +1439,14 @@ html.pin-on .dock{transform:translateY(110%)!important}
      <div class="bt-vis" aria-hidden="true"><div class="m-web an" style="--k:0"><div class="m-url"><i></i><i></i><i></i><span>yourbusiness.com/water-heater-installation-tampa</span></div><div class="m-pg"><b>Water heater installation in Tampa</b><span>Same-week installs · Tank and tankless</span><div class="m-cta"><span class="a">Call now</span><span class="b">Get a quote</span></div></div></div></div>
      <div class="bt-txt"><span class="bt-grp"><i>2</i>Get picked</span><h3>Websites, built and managed <span class="bt-rec">Recommended</span></h3><p>A fast site with a page built to win your money job. We run it for you.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
     </a>
+    <div class="bt-band" data-rv><b>Never Miss a Call</b><span>Our add-on for when Google sends you more calls than you can answer: text-back and AI booking, together.</span></div>
     <a class="bt bt-sms" href="#missed-call-text-back" data-rv>
      <div class="bt-vis" aria-hidden="true"><span class="m-miss an" style="--k:0">Missed call · 2:41 PM</span><div class="m-out an" style="--k:1">Sorry we missed you, we're on a job. What can we help with?</div><div class="m-in an" style="--k:2">Water heater's leaking. Can someone come today?</div></div>
-     <div class="bt-txt"><span class="bt-grp"><i>3</i>Get the call · add-on</span><h3>Missed-call text-back</h3><p>Every missed call gets a text within a minute, so they don't call the next shop.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
+     <div class="bt-txt"><span class="bt-grp"><i>3</i>Never Miss a Call add-on</span><h3>Missed-call text-back</h3><p>Every missed call gets a text within a minute, so they don't call the next shop.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
     </a>
     <a class="bt bt-book" href="#ai-assistants-booking" data-rv>
      <div class="bt-vis" aria-hidden="true"><div class="m-in an" style="--k:0">Can I book an install for Saturday?</div><div class="m-out an" style="--k:1">Saturday 9 AM is open. I've sent it to the team to confirm.</div><span class="m-ok an" style="--k:2">Request sent · 10:12 PM</span></div>
-     <div class="bt-txt"><span class="bt-grp"><i>3</i>Get the call · add-on</span><h3>AI assistants and online booking</h3><p>Take bookings and custom orders day or night. You confirm the details.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
+     <div class="bt-txt"><span class="bt-grp"><i>3</i>Never Miss a Call add-on</span><h3>AI assistants and online booking</h3><p>Take bookings and custom orders day or night. You confirm the details.</p></div><span class="bt-go"><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></span>
     </a>
   </div>
   <div class="bento-nav" aria-hidden="true"><span class="bento-bar"><i id="bentoBar"></i></span><span class="bento-hint">Swipe for all 8</span></div>
@@ -1511,12 +1516,12 @@ html.pin-on .dock{transform:translateY(110%)!important}
    </article>
    <article class="plan addon" data-rv>
      <div class="addon-ph"><img src="img/truck-call.jpg" alt="Tradesperson answering a customer call from his truck" loading="lazy" width="800" height="537"></div>
-    <span class="badge">Add when you're ready</span>
-    <h3 style="font-size:clamp(24px,2.4vw,30px)">Never miss a customer</h3>
-    <p>Once Google sends you more calls than you can answer, these make sure none slip away.</p>
+    <span class="badge">Add-on · when you're ready</span>
+    <h3 style="font-size:clamp(24px,2.4vw,30px)">Never Miss a Call</h3>
+    <p>Once Google sends you more calls than you can answer, this add-on makes sure none slip away. Two tools, one add-on:</p>
     <a class="addon-l" href="#missed-call-text-back"><b>Missed-call text-back</b><span>Every missed caller gets a text within a minute.</span><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a>
     <a class="addon-l" href="#ai-assistants-booking"><b>AI assistants and online booking</b><span>Bookings and custom orders, day or night.</span><svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a>
-    <p class="fine">Priced separately. We'll show you how many calls you're missing before suggesting either.</p>
+    <p class="fine">Priced separately. We'll show you how many calls you're missing before suggesting it.</p>
    </article>
   </div>
   <div class="calc" id="math">
@@ -1758,23 +1763,24 @@ html.pin-on .dock{transform:translateY(110%)!important}
     <div class="stage-copy" data-rv>
      <span class="step"><i>1</i>Get found</span>
      <h3 style="font-size:clamp(28px,3.4vw,44px)">Show up for your money job, all across town.</h3>
-     <p>We rebuild your Google profile around the job that pays you best, then spread your reach for that search street by street, suburb by suburb.</p>
+     <p>We aim you at the search that pays. Not &ldquo;hvac company near me&rdquo;, but &ldquo;ac replacement near me&rdquo;. Then we rebuild your Google profile around it and spread your reach street by street.</p>
      <ul><li>The right main category for your business, with your money job leading the services, description and posts</li><li>A page on your website for that job in your city</li><li>Its keywords worked into your profile, posts and listings</li></ul>
     </div>
     <div class="stage-vis" data-rv><div class="fitbox">
      <div class="phone"><div class="screen"><span class="notch"></span>
       <div class="scr s-map">
-       <div class="bar an" style="--k:0"><svg aria-hidden="true"><use href="#srch"/></svg>ac replacement near me</div>
-       <div class="mini an" style="--k:1">
-        <span class="mp an" style="left:22%;top:30%;--k:2"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
-        <span class="mp an" style="left:76%;top:26%;--k:2"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
-        <span class="mp an" style="left:68%;top:78%;--k:3"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
-        <span class="mp me an" style="left:46%;top:58%;--k:4"><svg viewBox="0 0 24 34"><use href="#pin" fill="var(--leaf)"/></svg></span>
+       <div class="qlad an" style="--k:0"><span class="c1">Broad</span><span class="c2">One service</span><span class="c3">Money job</span></div>
+       <div class="bar an" style="--k:0"><svg aria-hidden="true"><use href="#srch"/></svg><span class="qs"><span class="q1">hvac company near me</span><span class="q2">ac installation</span><span class="q3">ac replacement near me</span></span></div>
+       <div class="mini an" style="--k:20">
+        <span class="mp an" style="left:22%;top:30%;--k:21"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
+        <span class="mp an" style="left:76%;top:26%;--k:21"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
+        <span class="mp an" style="left:68%;top:78%;--k:22"><svg viewBox="0 0 24 34"><use href="#pin" fill="#9DB3A6"/></svg></span>
+        <span class="mp me an" style="left:46%;top:58%;--k:23"><svg viewBox="0 0 24 34"><use href="#pin" fill="var(--leaf)"/></svg></span>
        </div>
        <div class="res">
-        <div class="top an" style="--k:5"><span class="rk">1</span><span><b>Your Business</b><br><span class="stars">★★★★★</span> Open now</span></div>
-        <div class="an" style="--k:6"><span class="rk">2</span><span>Competitor A</span></div>
-        <div class="an" style="--k:7"><span class="rk">3</span><span>Competitor B</span></div>
+        <div class="top an" style="--k:24"><span class="rk">1</span><span><b>Your Business</b><br><span class="stars">★★★★★</span> Open now</span></div>
+        <div class="an" style="--k:25"><span class="rk">2</span><span>Competitor A</span></div>
+        <div class="an" style="--k:26"><span class="rk">3</span><span>Competitor B</span></div>
        </div>
       </div>
       <span class="tag-ex">Example</span>
@@ -2200,7 +2206,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
  <section class="sp-hero"><div class="wrap sp-grid">
   <div class="sp-copy">
    <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#top">Home</a></li><li><a href="#services">Services</a></li><li><span aria-current="page">Missed-call text-back</span></li></ol></nav>
-   <span class="sp-tag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span>Add-on · priced separately</span></span>
+   <span class="sp-tag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span>Part of the Never Miss a Call add-on</span></span>
    <h1 id="h-missed-call-text-back" tabindex="-1">Missed the call? They still hear from you in a minute.</h1>
    <p class="lede">When you&#x27;re on a ladder or under a sink, you can&#x27;t pick up. Text-back sends the caller a friendly text right away, so they wait for you instead of calling the next business on the list.</p>
    <div class="ctas"><a class="btn btn-go" href="#audit" data-pick="missed-call-text-back">Get started now <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a><a class="btn btn-ghost" href="#pricing">See pricing</a></div>
@@ -2250,7 +2256,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
  <section class="sp-hero"><div class="wrap sp-grid">
   <div class="sp-copy">
    <nav class="crumb" aria-label="Breadcrumb"><ol><li><a href="#top">Home</a></li><li><a href="#services">Services</a></li><li><span aria-current="page">AI assistants and online booking</span></li></ol></nav>
-   <span class="sp-tag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3"/></svg></span><span>Add-on · priced separately</span></span>
+   <span class="sp-tag"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3"/></svg></span><span>Part of the Never Miss a Call add-on</span></span>
    <h1 id="h-ai-assistants-booking" tabindex="-1">Take bookings and orders while you sleep.</h1>
    <p class="lede">A chat assistant on your website and online booking that answer common questions, collect the job details and book the slot, then hand everything to you to confirm.</p>
    <div class="ctas"><a class="btn btn-go" href="#audit" data-pick="ai-assistants-booking">Get started now <svg class="ar" aria-hidden="true"><use href="#arr"/></svg></a><a class="btn btn-ghost" href="#pricing">See pricing</a></div>
@@ -2418,39 +2424,12 @@ html.pin-on .dock{transform:translateY(110%)!important}
       });
     });
   }
-  /* pains: where are you on Google (Oct 27) */
-  var pst = [].slice.call(document.querySelectorAll('.pstage'));
-  var pprog = [].slice.call(document.querySelectorAll('#pprog button'));
-  function pLive(el, on){ el.querySelector('.pvis').classList.toggle('live', on); }
+  /* sound familiar cards: animate their example when seen (Oct 27) */
+  var fams = [].slice.call(document.querySelectorAll('.fam-card'));
   if (!reduce && 'IntersectionObserver' in window) {
-    var pio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting && !document.querySelector('.pains.pinned, .pains.pinned-m')) e.target.closest('.pvis').classList.add('live'); }); }, { threshold: 0.35 });
-    pst.forEach(function(s){ pio.observe(s.querySelector('.pv')); });
-  } else { pst.forEach(function(s){ pLive(s, true); }); }
-  function pAct(i){
-    pst.forEach(function(s, k){ s.classList.toggle('active', k === i); s.classList.toggle('past', k < i); pLive(s, k === i); });
-    pprog.forEach(function(b, k){ if (k === i) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
-  }
-  if (!reduce && window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.matchMedia().add('(min-width: 900px) and (min-height: 640px)', function(){
-      var sec = document.getElementById('problem');
-      sec.classList.add('pinned');
-      sec.querySelectorAll('[data-rv]').forEach(function(el){ el.classList.add('in'); });
-      var cur = -1, n = pst.length, bars = pprog.map(function(b){ return b.querySelector('i'); });
-      var st = ScrollTrigger.create({
-        trigger: '#painsPin', start: 'top top+=72', end: '+=' + Math.round(innerHeight * 2.4),
-        pin: true, anticipatePin: 1,
-        onUpdate: function(self){
-          var p = self.progress * n, i = Math.min(n - 1, Math.floor(p));
-          bars.forEach(function(b, k){ b.style.transform = 'scaleX(' + Math.max(0, Math.min(1, p - k)) + ')'; });
-          if (i !== cur){ cur = i; pAct(i); }
-        }
-      });
-      pAct(0);
-      pprog.forEach(function(b){ b.onclick = function(){ var k = +b.dataset.go; scrollTo({ top: st.start + (st.end - st.start) * (k / n + 0.02), behavior: 'smooth' }); }; });
-      return function(){ sec.classList.remove('pinned'); pst.forEach(function(s){ s.classList.add('active'); s.classList.remove('past'); pLive(s, true); }); pprog.forEach(function(b){ b.onclick = null; }); };
-    });
-  }
+    var fio = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('live'); fio.unobserve(e.target); } }); }, { threshold: 0.35 });
+    fams.forEach(function(c){ fio.observe(c); });
+  } else fams.forEach(function(c){ c.classList.add('live'); });
   /* story: stage screens animate when live */
   var stages = [].slice.call(document.querySelectorAll('.stage'));
   var prog = [].slice.call(document.querySelectorAll('#prog button'));
@@ -2514,7 +2493,7 @@ html.pin-on .dock{transform:translateY(110%)!important}
         var st = ScrollTrigger.create({
           trigger: pinSel, start: 'top top+=' + hh, end: '+=' + Math.round(innerHeight * 0.75 * n),
           pin: true, anticipatePin: 1,
-          snap: { snapTo: snaps, duration: { min: 0.2, max: 0.45 }, delay: 0.06, ease: 'power1.inOut' },
+          snap: { snapTo: function(v){ if (!sec.offsetParent || !st || !st.isActive) return v; var best = v, d = 9; snaps.forEach(function(x){ if (Math.abs(x - v) < d){ d = Math.abs(x - v); best = x; } }); return best; }, duration: { min: 0.2, max: 0.45 }, delay: 0.06, ease: 'power1.inOut' },
           onToggle: function(self){ document.documentElement.classList.toggle('pin-on', self.isActive); },
           onRefresh: function(){ fit(sec); },
           onUpdate: function(self){
@@ -2531,15 +2510,13 @@ html.pin-on .dock{transform:translateY(110%)!important}
           progBtns.forEach(function(b){ b.onclick = null; });
         };
       }
-      var u1 = make('problem', '#painsPin', pst, pprog, pAct, pst.length);
       var u2 = make('story', '#storyPin', stages, prog, activate, stages.length);
-      var onR = function(){ ['problem','story'].forEach(function(id){ var e = document.getElementById(id); if (e) fit(e); }); };
+      var onR = function(){ ['story'].forEach(function(id){ var e = document.getElementById(id); if (e) fit(e); }); };
       addEventListener('resize', onR);
       return function(){
         removeEventListener('resize', onR);
         document.documentElement.classList.remove('pin-on');
-        if (u1) u1(); if (u2) u2();
-        pst.forEach(function(s){ s.classList.add('active'); s.classList.remove('past'); pLive(s, true); });
+        if (u2) u2();
         stages.forEach(function(s){ s.classList.add('active'); setLive(s, true); });
       };
     });
